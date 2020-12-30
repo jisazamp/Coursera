@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody, Media,
     CardTitle } from 'reactstrap';
-
-class DishDetail extends Component {
    
-    renderDish(dish) {
+    // user defined components start with a capital letter
+
+    function RenderDish({dish}) {
         if (dish != null) {
             return(
                 <Card>
@@ -24,7 +24,7 @@ class DishDetail extends Component {
         }
     }
 
-    renderComments(comments) {
+    function RenderComments({comments}) {
         const comms = this.props.dish.comments.map((comment) => {
             return(
             <div key={comment.id}>
@@ -47,19 +47,19 @@ class DishDetail extends Component {
         }
     }
 
-    render() {
+    const DishDetail =(props) => {
         if (this.props.dish != null) {
             return(
                 <div className="row">
                     {/* div for the card */}
                     <div className="col-12 col-md-5 m-1">
-                        {this.renderDish(this.props.dish)}
+                        <RenderDish dish={props.dish} />
                     </div>
     
                     {/* div for the comments */}
                     <div className="col-12 col-md-5 m-1">
                         <h4>Comments</h4>
-                        <p>{this.renderComments(this.props.dish.comments)}</p>
+                        <p><RenderComments comments= {props.dish.comments} /></p>
                     </div>
                 </div>
             );
@@ -71,7 +71,6 @@ class DishDetail extends Component {
             );
         }
     }
-}
 
 export default DishDetail;
 
