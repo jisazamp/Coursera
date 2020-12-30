@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, Media,
     CardTitle } from 'reactstrap';
-import Moment from 'react-moment';
 
 class DishDetail extends Component {
    
@@ -32,7 +31,7 @@ class DishDetail extends Component {
                 <Media tag="li">
                     <Media body>
                         <p>{comment.comment}</p>
-                        <p>-- {comment.author}, <Moment>{comment.date}</Moment></p>
+                        <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                     </Media>
                 </Media>
             </div>
