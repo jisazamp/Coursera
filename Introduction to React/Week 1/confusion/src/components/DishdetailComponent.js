@@ -25,7 +25,7 @@ import { Card, CardImg, CardText, CardBody, Media,
     }
 
     function RenderComments({comments}) {
-        const comms = this.props.dish.comments.map((comment) => {
+        const comms = comments.map((comment) => {
             return(
             <div key={comment.id}>
                 <Media tag="li">
@@ -48,7 +48,7 @@ import { Card, CardImg, CardText, CardBody, Media,
     }
 
     const DishDetail =(props) => {
-        if (this.props.dish != null) {
+        if (props.dish != null) {
             return(
                 <div className="row">
                     {/* div for the card */}
